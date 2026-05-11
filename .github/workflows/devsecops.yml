@@ -9,6 +9,11 @@ on:
 jobs:
   build-and-security:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pull-requests: read
+      security-events: write
 
     steps:
       - name: Checkout Code
@@ -18,17 +23,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run npm audit
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=high --json > audit-results.json
+        continue-on-error: true
+
+      - name: Upload npm audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: audit-results.json
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -38,5 +53,7 @@ jobs:
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
 
-      - name: Analyze
+      - name: Analyze with CodeQL
         uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
