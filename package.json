@@ -1,0 +1,7 @@
+{
+  "name": "devsecops-project",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo Testing Success"
+  }
+}
