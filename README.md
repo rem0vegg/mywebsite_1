@@ -34,7 +34,7 @@ Tool yang digunakan adalah CodeQL dari GitHub. Sebagai template yang kodenya aka
 
 ## Hasil Pipeline
 
-Pipeline telah berhasil dijalankan sebanyak 15 kali dengan run terbaru semuanya berstatus sukses (hijau). Iterasi run sebelumnya yang gagal merupakan bagian normal dari proses debugging dan penyempurnaan konfigurasi pipeline, mulai dari perbaikan package-lock.json, permission workflow, hingga penambahan script.js agar CodeQL dapat menganalisis kode JavaScript. Artefak hasil scan audit-results.json tersedia di tab Actions sebagai bukti hasil pemindaian npm audit yang dapat ditinjau oleh tim kapan saja.
+Pipeline telah berhasil dijalankan sebanyak 18 kali dengan run terbaru semuanya berstatus sukses (hijau). Iterasi run sebelumnya yang gagal merupakan bagian normal dari proses debugging dan penyempurnaan konfigurasi pipeline, mulai dari perbaikan package-lock.json, permission workflow, hingga penambahan script.js agar CodeQL dapat menganalisis kode JavaScript. Artefak hasil scan audit-results.json tersedia di tab Actions sebagai bukti hasil pemindaian npm audit yang dapat ditinjau oleh tim kapan saja.
 
 ## 🛠️ Teknologi
 - HTML / CSS
