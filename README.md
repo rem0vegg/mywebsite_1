@@ -1,10 +1,10 @@
-Laporan DevSecOps Pipeline — mywebsite_1
+Laporan DevSecOps Pipeline -- mywebsite_1
 Anggota Kelompok
 
-rem0vegg — Gregorius Ramothy Lumban Raja
-Snozz1gh — Matthew Mayfield Mandey
-jollyscenery — Karta Jethro Daron Anugrah
-wilborgg — Wilbert Giovanni Archie
+rem0vegg = Gregorius Ramothy Lumban Raja
+Snozz1gh = Matthew Mayfield Mandey
+jollyscenery = Karta Jethro Daron Anugrah
+wilborgg = Wilbert Giovanni Archie
 
 Tentang Aplikasi
 mywebsite_1 adalah sebuah aplikasi web sederhana berbasis Node.js yang berfungsi sebagai Starter Template Microservice. Meskipun tampilannya berupa halaman "Hello World", konteks sesungguhnya dari proyek ini adalah sebagai fondasi awal sebuah layanan mikro yang nantinya akan diintegrasikan ke dalam sistem yang lebih besar. Aplikasi ini dikemas menggunakan Docker dan Nginx, sehingga siap untuk di-deploy di berbagai lingkungan (development maupun production) secara konsisten dan terisolasi.
@@ -16,7 +16,7 @@ Alur kerja pipeline dimulai dengan tahap Continuous Integration di mana sistem s
 Fitur Keamanan (Security Features)
 Karena proyek ini adalah starter template microservice yang dirancang untuk diintegrasikan ke sistem yang lebih besar, standar keamanan harus diterapkan sejak awal sebelum kode berkembang lebih jauh. Tiga fitur keamanan berikut dipilih untuk membangun lapisan pertahanan yang saling melengkapi:
 
-1. SCA — Software Composition Analysis (npm audit)
+1. SCA -> Software Composition Analysis (npm audit)
 
 Tool yang digunakan adalah npm audit bawaan Node.js. Pada konteks microservice, aplikasi sangat bergantung pada library pihak ketiga dari ekosistem npm. Jika salah satu library memiliki kerentanan yang belum dipatch, seluruh layanan yang bergantung padanya bisa ikut terdampak. npm audit memindai seluruh dependency dan menghasilkan laporan yang disimpan sebagai artefak audit-results.json sehingga tim keamanan bisa meninjau hasilnya kapan saja. Hasil scan: 0 vulnerabilities found
 
@@ -24,7 +24,7 @@ Tool yang digunakan adalah npm audit bawaan Node.js. Pada konteks microservice, 
 
 Tool yang digunakan adalah Gitleaks. Pada microservice, sangat umum ditemukan API key, database token, atau service credential yang ditulis langsung di dalam kode secara tidak sengaja. Jika secret tersebut terpublish ke repository publik, dampaknya bisa sangat besar karena satu microservice yang bocor bisa membuka akses ke seluruh sistem. Gitleaks mendeteksi hal ini secara otomatis sebelum kode sempat dipublikasikan. Hasil scan: no leaks found, 6 commits scanned, ~1964 bytes (1.96 KB) dalam 171ms.
 
-3. SAST — Static Application Security Testing (CodeQL)
+3. SAST -> Static Application Security Testing (CodeQL)
 
 Tool yang digunakan adalah CodeQL dari GitHub. Sebagai template yang kodenya akan dikembangkan lebih lanjut oleh anggota tim lain, penting untuk mendeteksi celah logika seperti Cross-Site Scripting (XSS) atau injection attack sejak kode masih di tahap development. CodeQL menganalisis struktur kode JavaScript secara mendalam tanpa perlu menjalankan aplikasinya. Hasilnya bisa dilihat langsung di tab Security > Code scanning alerts pada repository.
 
