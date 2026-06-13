@@ -1,28 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DevOps Kelompok</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: monospace;
-      background: #0a0a0f;
-      color: #00ff88;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    h1 { font-size: 3rem; margin: 0; }
-    p { color: #666; margin: 0; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proyek kolaborasi Git workflow dan DevSecOps kelompok.">
+  <title>DevSecOps Kelompok</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
 </head>
 <body>
-  <h1>Hello, World! 🐳</h1>
-  <p>DevOps Kelompok — Running on Docker</p>
+  <main class="container">
+    <p class="eyebrow">Secure delivery, shared ownership</p>
+    <h1>DevSecOps Kelompok</h1>
+    <p class="lead">
+      Website ini dibangun, diuji, dipindai, dan dikemas otomatis melalui
+      GitHub Actions.
+    </p>
+
+    <section class="grid" aria-label="Tahapan pipeline">
+      <article>
+        <span>01</span>
+        <h2>Quality</h2>
+        <p>Syntax check, automated tests, dan dependency audit.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>Security</h2>
+        <p>CodeQL, Gitleaks, dependency review, dan container scanning.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>Delivery</h2>
+        <p>Image non-root, SBOM, provenance, dan publikasi ke GHCR.</p>
+      </article>
+    </section>
+
+    <p id="service-status" class="status" role="status">Memeriksa layanan...</p>
+  </main>
 </body>
 </html>
+
