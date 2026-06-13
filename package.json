@@ -1,7 +1,17 @@
 {
-  "name": "devsecops-project",
-  "version": "1.0.0",
+  "name": "devsecops-group-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Website demonstrasi Git workflow dan DevSecOps pipeline.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo Testing Success"
-  }
+    "start": "node server.js",
+    "check": "node --check server.js && node --check script.js && node --check test/server.test.js",
+    "test": "node --test",
+    "ci": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
 }
